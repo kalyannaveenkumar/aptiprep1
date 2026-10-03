@@ -1,0 +1,1 @@
+{ "name": "aptiprep", "version": "1.0.0", "description": "Aptitude & reasoning practice platform (Node.js + vanilla JS)", "main": "server.js", "scripts": { "start": "node server.js" }, "license": "MIT" }
