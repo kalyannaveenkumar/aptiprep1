@@ -196,7 +196,7 @@ http.createServer(async (req, res) => {
     try { await api(req, u, send); } catch (e) { console.error(e); send(500, { error: 'Server error' }); }
     return;
   }
-  const pubDir = path.join(ROOT, 'public'), f = path.join(pubDir, u.pathname === '/' ? 'index.html' : u.pathname);
+  const pubDir = ROOT, f = path.join(pubDir, u.pathname === '/' ? 'index.html' : u.pathname);
   if (!f.startsWith(pubDir) || !fs.existsSync(f) || fs.statSync(f).isDirectory()) { res.writeHead(404); return res.end('Not found'); }
   res.writeHead(200, { 'Content-Type': MIME[path.extname(f)] || 'application/octet-stream' });
   fs.createReadStream(f).pipe(res);
